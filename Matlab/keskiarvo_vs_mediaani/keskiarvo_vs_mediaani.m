@@ -51,5 +51,5 @@ imshow(uint8(round(255*errorpic)))
 axis equal
 
 % Tallennetaan kuvat
-imwrite(uint8(im_ave),'../../kuvat/im_average.jpg');
-imwrite(uint8(im_median),'../../kuvat/im_median.jpg');
+imwrite(uint8(im_ave),'_kuvat/im_average.jpg');
+imwrite(uint8(im_median),'_kuvat/im_median.jpg');
