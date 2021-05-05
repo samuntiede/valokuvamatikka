@@ -12,11 +12,31 @@ Harmoninen kuvanpaikkaus käyttää puuttuvan kuvainformaation luomiseen keskiar
 
 2. KÄYTTÖOHJE
 
+2.1 Suorakaiteen muotoisen alueen paikkaaminen
+
 Ajamalla Matlab-rutiinin Poisson_FD_ahven_solve.m saat alihakemistoon "_kuvat" tuotettua kuvan nimeltä ahven_pois.jpg. Siitä on poistettu henkilön vieressä roikkuva leluahven, mutta ei naruja, joista tuo pehmokala roikkuu. Edelleen ajamalla rutiinin Poisson_FD_ahven_solve2.m saat alihakemistoon "_kuvat" tuotettua kuvan nimeltä ahven_ja_narut_pois.jpg. 
 
 Yllä mainitut Matlab-rutiinit kutsuvat funktiota FD_Laplace.m. Ne perustuvat suorakaiteen muotoisen palan paikkaamiseen. 
 
+Huomaa, että suorakaiteesta jää paikattuun kuvaan pieni jälki, eli tämä menetelmä ei ole aivan täydellinen. 
+
+
+2.2 Mielivaltaisen alueen paikkaaminen
+
 Voimme käyttää myös mielivaltaisen muotoista maskia. Ahvenkuvalle on maski _kuvat/KimmoSiltanen8MV_rough_mask.png, jossa on merkitty mustalla paikattavat pikselit. Voit kokeilla tätä paikkausta ajamalla rutiinin Poisson_FD_ahven_solve3.m, joka puolestaan kutsuu rutiineja AS_FD_Laplace.m ja Back_Together.m. Tulos tallennetaan alihakemistoon "_kuvat" nimellä ahven_ja_narut_pois2.jpg. 
+
+Huomaa, että kuvaan jää jopa suorakaidetta pahemmin näkymään paikkauksen jälki. Maskia muokkaamalla lopputulos saattaa parantua. Kokeile!
+
+
+2.3 Harjoitustehtävä: värikuvan paikkaaminen
+
+Kohdissa 2.1 ja 2.2 esitellyt koodit toimivat vain yksikanavaisille eli harmaasävykuville. Kirjoita koodi, joka erottelee kuvasta kolme värikanavaa (RGB) ja suorittaa kuvanpaikkauksen jokaiseen niistä. Lopuksi koodin tulee koota yhteksi värikuvaksi nuo kolme paikattua värikanavaa. 
+
+
+2.4 Harjoitustehtävä: kiekon muotoisen alueen paikkaaminen
+
+Kirjoita koodi, jolle annetaan syötteeksi kolme lukua: kiekon säde sekä keskipisteen rivi ja sarake. Koodi laatii maskikuvan, joka on saman kokoinen kuin alkuperäinen kuva ja jossa on kiekossa nollia ja muuten ykkösiä. Käytä sitten kohdan 2.2 koodeja kiekkoalueen paikkaamiseen. 
+
 
 
 3. LISÄTIETOA
