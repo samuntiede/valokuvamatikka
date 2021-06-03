@@ -14,11 +14,12 @@ import matplotlib.pyplot as plt
 plt.gray()   # FIN Kuvan tulostus harmaasävynä ENG Printing the image in grayscale
 import sys
 from FD_Laplace import FD_Laplace
+from PIL import Image
 
 
 # ENG Read in the perch image
 # FIN Lue mustavalkoinen valokuva työtilaan
-im_orig = np.array(plt.imread('KimmoSiltanen8MV.jpg','jpg'))
+im_orig = np.array(plt.imread('../../kuvat/KimmoSiltanen8MV.jpg','jpg'))
 
 
 # ENG Choose the rectangle to be inpainted. This choice is for removing
@@ -100,7 +101,8 @@ print('Linear system solved.')
 # FIN Tallennetaan korjattu kuva
 im2 = im_orig.copy()
 im2[inpy:inpy+row, inpx:inpx+col] = Psol;
-plt.imsave('ahven_pois.jpg', im2, format='jpg')
+im_to_save = Image.fromarray(im2)
+im_to_save.save('ahven_pois.jpg')
 
 # ENG Take a look
 # FIN Katsotaan tulosta

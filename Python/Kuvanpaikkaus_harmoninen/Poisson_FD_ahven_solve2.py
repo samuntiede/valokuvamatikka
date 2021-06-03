@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 plt.gray()   # FIN Kuvan tulostus harmaasävynä ENG Printing the image in grayscale
 import sys
 from FD_Laplace import FD_Laplace
+from PIL import Image
 
 def poisson_fix(im_orig, inpx, inpy, row, col):
 
@@ -85,7 +86,9 @@ im2 = poisson_fix(im1, 164, 0, 170, 26)
 # FIN Toka naru
 im3 = poisson_fix(im2, 299, 1, 170, 26)
 
-plt.imsave('ahven_ja_narut_pois.jpg', im3, format='jpg')
+im_to_save = Image.fromarray(im3)
+im_to_save.save('ahven_ja_narut_pois.jpg')
+
 
 # ENG Take a look
 # FIN Katsotaan tulosta
